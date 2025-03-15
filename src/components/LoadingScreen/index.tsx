@@ -1,4 +1,3 @@
-import React from 'react';
 import { Container, SpinnerContainer } from './styles';
 
 export default function LoadingScreen() {
