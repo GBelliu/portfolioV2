@@ -3,7 +3,7 @@ import { Container, TextContainer, InfosContainer, CodeItem } from './styles';
 export function HomeHero() {
   return (
     <Container data-aos="fade-up">
-      <img src="/botasergipana.png" alt="Guilherme" />
+      <img src="/perfil.png" alt="Guilherme" />
       <div>
         <TextContainer>
           <h1>Olá</h1>

@@ -1,23 +1,21 @@
-import React from 'react';
-import Link from 'next/link';
 import { Container } from './styles';
 
 interface ProjetoItemProps {
   title: string;
   type: string;
   imgUrl: string;
-  slug: string;
+  uid: string;
 }
 
 export default function ProjetoItem({
   title,
   type,
   imgUrl,
-  slug
+  uid
 }: ProjetoItemProps) {
   return (
     <Container imgUrl={imgUrl}>
-      <Link href={`/projetos/${slug}`}>
+      <a href={`/projetos/${uid}`}>
         <>
           <div className="overlay" />
           <section>
@@ -25,7 +23,7 @@ export default function ProjetoItem({
             <h2>{type}</h2>
           </section>
         </>
-      </Link>
+      </a>
     </Container>
   );
 }

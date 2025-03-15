@@ -4,11 +4,11 @@ import { ProjetoContainer } from './styles';
 interface ProjetoProps {
   title: string;
   type: string;
-  slug: string;
+  uid: string;
   img: string;
 }
 
-export default function ProjetoItem({ title, type, slug, img }: ProjetoProps) {
+export default function ProjetoItem({ title, type, uid, img }: ProjetoProps) {
   return (
     <ProjetoContainer imgUrl={img} data-aos="fade-up">
       <section>
@@ -19,7 +19,7 @@ export default function ProjetoItem({ title, type, slug, img }: ProjetoProps) {
         </div>
       </section>
       <button type="button">
-        <a href={`/projetos/${slug}`}>
+        <a href={`/projetos/${uid}`}>
           <p>
             Ver mais <AiOutlineRightCircle />
           </p>
