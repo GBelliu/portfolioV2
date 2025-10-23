@@ -24,7 +24,7 @@ export default function NavLink({
   const isActive = verifyIfIsActive();
 
   return (
-    <NavLinkContainer isActive={isActive}>
+    <NavLinkContainer $isActive={isActive}>
       <Link to={path}>
         <p>{title}</p>
       </Link>

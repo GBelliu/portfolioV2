@@ -4,7 +4,7 @@ import { Route, Routes } from 'react-router-dom';
 import Home from './pages/home';
 import Projetos from './pages/projetos';
 import ProjetoPage from './pages/projetos/[uid]';
-
+import Estudos from './pages/estudos';
 
 function App() {
 
@@ -16,6 +16,7 @@ function App() {
       <Route path="/" element={<Home />} />
       <Route path="/projetos" element={<Projetos />} />
       <Route path='/projetos/:uid' element={<ProjetoPage />} />
+      <Route path="/estudos" element={<Estudos />} />
     </Routes>
   )
 }

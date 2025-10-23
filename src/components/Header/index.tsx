@@ -7,6 +7,7 @@ export function Header() {
       <ul>
         <NavLink title="Home" path="/" />
         <NavLink title="Projetos" path="/projetos" includes />
+        <NavLink title="Estudos" path="/estudos" />
       </ul>
     </Container>
   );
