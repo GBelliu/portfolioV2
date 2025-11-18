@@ -7,7 +7,12 @@ export function Header() {
       <ul>
         <NavLink title="Home" path="/" />
         <NavLink title="Projetos" path="/projetos" includes />
-        <NavLink title="Estudos" path="/estudos" />
+        <NavLink
+          title="Currículo"
+          path="/pdf/Currículo - Guilherme Bellissimo.pdf"
+          newTab
+        />
+        {/* <NavLink title="Estudos" path="/estudos" /> */}
       </ul>
     </Container>
   );

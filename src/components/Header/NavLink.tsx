@@ -5,16 +5,21 @@ interface NavLinkProps {
   title: string;
   path: string;
   includes?: boolean;
+  newTab?: boolean;
 }
 
 export default function NavLink({
   title,
   path,
-  includes = false
+  includes = false,
+  newTab = false
 }: NavLinkProps) {
   const location = useLocation();
 
   function verifyIfIsActive() {
+    if (newTab) {
+      return false;
+    }
     if (includes) {
       return location.pathname.includes(path);
     }
@@ -25,7 +30,12 @@ export default function NavLink({
 
   return (
     <NavLinkContainer $isActive={isActive}>
-      <Link to={path}>
+      <Link
+        to={path}
+        target={newTab ? '_blank' : undefined}
+        rel={newTab ? 'noopener noreferrer' : undefined}
+        reloadDocument={newTab}
+      >
         <p>{title}</p>
       </Link>
     </NavLinkContainer>
@@ -33,5 +43,6 @@ export default function NavLink({
 }
 
 NavLink.defaultProps = {
-  includes: false
+  includes: false,
+  newTab: false
 };

@@ -3,7 +3,6 @@ import {
   AiOutlineGithub,
   AiFillLinkedin
 } from 'react-icons/ai';
-import { RiTwitchFill } from 'react-icons/ri';
 import { Container } from './styles';
 
 export default function Footer() {
@@ -29,16 +28,16 @@ export default function Footer() {
             onClick={() => handleRedirect('https://github.com/GBelliu')}
           />
           <AiFillLinkedin
-            onClick={() => handleRedirect('https://linkedin.com')}
+            onClick={() => handleRedirect('https://www.linkedin.com/in/guilhermebellissimobarbosa/')}
           />
           <AiFillInstagram
             onClick={() =>
-              handleRedirect('https://www.instagram.com/gui_bellissimo/')
+              handleRedirect('https://www.instagram.com/guibellissimo/')
             }
           />
-          <RiTwitchFill
+          {/* <RiTwitchFill
             onClick={() => handleRedirect('https://www.twitch.tv/gbelliu')}
-          />
+          /> */}
         </section>
       </div>
     </Container>
