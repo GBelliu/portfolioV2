@@ -20,7 +20,8 @@ export const socials = [
   { label: 'WhatsApp', handle: whatsapp.label, href: whatsapp.href },
   { label: 'LinkedIn', handle: 'in/guilhermebellissimobarbosa', href: 'https://www.linkedin.com/in/guilhermebellissimobarbosa/' },
   { label: 'GitHub', handle: '@GBelliu', href: 'https://github.com/GBelliu' },
-  { label: 'Instagram', handle: '@gui_bellissimo', href: 'https://www.instagram.com/gui_bellissimo/' },
+  { label: 'Instagram', handle: '@devdomarketing', href: 'https://www.instagram.com/devdomarketing/' },
+  { label: 'Insta pessoal', handle: '@guibellissimo', href: 'https://www.instagram.com/guibellissimo/' },
 ];
 
 export const nav = [
