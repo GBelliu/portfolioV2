@@ -2,7 +2,7 @@ import { releases } from '../../content/career';
 import { projects } from '../../content/projects';
 import { services } from '../../content/services';
 import { stackRows } from '../../content/stack';
-import { nav, site, socials, whatsapp, yearsCoding } from '../../content/site';
+import { nav, site, socials, whatsapp, yearsCoding, youtube } from '../../content/site';
 
 export interface CommandResult {
   output: string[];
@@ -22,6 +22,7 @@ const HELP = [
   '  abrir <n>   abre o projeto n numa nova aba',
   '  stack       ferramentas',
   '  contato     onde me encontrar',
+  '  youtube     o lado B',
   '  ls / cd     navegar pelas seções',
   '  clear       limpa a tela',
   '  …e talvez alguns segredos.',
@@ -74,6 +75,12 @@ export function runCommand(raw: string): CommandResult {
       return { output: stackRows.map((row) => '  ' + row.map((k) => k.name).join(' · ')) };
     case 'contato':
       return { output: socials.map((s) => `  ${s.label.padEnd(10, ' ')} ${s.handle}`) };
+    case 'youtube':
+    case 'ladob':
+      return {
+        output: [`canal "${youtube.name}" (${youtube.handle}): vida, corrida, IA e registros.`, 'abrindo o canal…'],
+        open: youtube.url,
+      };
     case 'ls':
       return { output: [sections.map((s) => `${s}/`).join('  ')] };
     case 'cd': {

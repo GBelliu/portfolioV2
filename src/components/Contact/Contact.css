@@ -49,12 +49,6 @@
   fill: var(--screen);
 }
 
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 @media (max-width: 760px) {
   .contact__badge {
     position: static;

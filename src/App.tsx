@@ -9,6 +9,7 @@ import { Career } from './components/Career/Career';
 import { Process } from './components/Process/Process';
 import { Stack } from './components/Stack/Stack';
 import { Terminal } from './components/Terminal/Terminal';
+import { SideB } from './components/SideB/SideB';
 import { Contact } from './components/Contact/Contact';
 import { Footer } from './components/Footer/Footer';
 import { Marquee } from './components/ui/Marquee';
@@ -36,6 +37,7 @@ export function App() {
         <Process />
         <Stack />
         <Terminal />
+        <SideB />
         <Contact />
       </main>
       <Footer />

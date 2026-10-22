@@ -16,12 +16,21 @@ export const whatsapp = {
   href: `https://wa.me/5519999900511?text=${whatsappText}`,
 };
 
+export const youtube = {
+  name: 'bel',
+  handle: '@guibellissimo',
+  url: 'https://www.youtube.com/@guibellissimo',
+  /** Playlist de uploads do canal (UU + id do canal): sempre mostra os vídeos mais recentes. */
+  uploads: 'UUJGs67aqLUgPIueQj9lL9tA',
+};
+
 export const socials = [
   { label: 'WhatsApp', handle: whatsapp.label, href: whatsapp.href },
   { label: 'LinkedIn', handle: 'in/guilhermebellissimobarbosa', href: 'https://www.linkedin.com/in/guilhermebellissimobarbosa/' },
   { label: 'GitHub', handle: '@GBelliu', href: 'https://github.com/GBelliu' },
   { label: 'Instagram', handle: '@devdomarketing', href: 'https://www.instagram.com/devdomarketing/' },
   { label: 'Insta pessoal', handle: '@guibellissimo', href: 'https://www.instagram.com/guibellissimo/' },
+  { label: 'YouTube', handle: youtube.handle, href: youtube.url },
 ];
 
 export const nav = [
