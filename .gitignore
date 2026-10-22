@@ -22,3 +22,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# backup local do portfólio antigo (já preservado no histórico do git)
+_legacy

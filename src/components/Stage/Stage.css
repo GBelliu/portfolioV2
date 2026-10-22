@@ -1,0 +1,235 @@
+.stage__pin {
+  position: relative;
+  height: 100svh;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 50% 60%, rgba(255, 255, 255, 0.55), transparent 60%),
+    linear-gradient(var(--line) 1px, transparent 1px) 0 0 / 48px 48px,
+    linear-gradient(90deg, var(--line) 1px, transparent 1px) 0 0 / 48px 48px,
+    var(--paper);
+  background-blend-mode: normal, multiply, multiply, normal;
+}
+
+.stage__canvas {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* ---------- hero ---------- */
+
+.hero {
+  position: absolute;
+  inset: var(--header-h) 0 0;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.5rem var(--gutter) 2rem;
+}
+
+.hero__meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  color: var(--ink-soft);
+}
+
+.hero__meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.hero__title {
+  display: flex;
+  flex-direction: column;
+  font-size: clamp(4.2rem, 16.5vw, 17rem);
+  font-weight: 800;
+  line-height: 0.82;
+  letter-spacing: -0.06em;
+  font-stretch: 82%;
+  margin-top: auto;
+  margin-bottom: auto;
+  translate: 0 -6%;
+}
+
+.hero__line {
+  display: block;
+  white-space: nowrap;
+}
+
+.hero__line--b {
+  align-self: flex-end;
+  color: var(--accent);
+}
+
+.hero__bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 2rem;
+}
+
+.hero__lead {
+  max-width: 30ch;
+  font-size: clamp(1rem, 1.4vw, 1.25rem);
+  line-height: 1.35;
+  position: relative;
+  z-index: 3;
+}
+
+.hero__lead em {
+  font-style: normal;
+  background: var(--yellow);
+  padding: 0 0.2em;
+}
+
+.hero__hint span {
+  display: inline-block;
+  animation: hint 1.6s var(--ease-out) infinite;
+}
+
+@keyframes hint {
+  50% {
+    transform: translateY(6px);
+  }
+}
+
+/* ---------- painéis do "sobre" ---------- */
+
+.stage__panels {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.panel {
+  position: absolute;
+  top: 50%;
+  left: var(--gutter);
+  translate: 0 -50%;
+  width: min(34rem, 44vw);
+}
+
+.panel__part {
+  visibility: hidden;
+}
+
+.panel__eyebrow {
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+
+.panel__title {
+  font-size: clamp(2.2rem, 4.6vw, 4.4rem);
+  font-weight: 750;
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  margin-bottom: 1.25rem;
+}
+
+.panel__text {
+  font-size: clamp(1rem, 1.3vw, 1.2rem);
+  color: var(--ink-soft);
+  max-width: 42ch;
+}
+
+.panel__text + .panel__text {
+  margin-top: 0.75rem;
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.panel__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+}
+
+.panel__chips li {
+  border: 1.5px solid var(--ink);
+  border-radius: 999px;
+  padding: 0.35rem 0.8rem;
+  background: var(--paper);
+}
+
+.panel__chips li:first-child {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.stage__veil {
+  display: none;
+  position: absolute;
+  inset: 42% 0 0;
+  background: linear-gradient(to bottom, transparent, var(--paper) 22%);
+  visibility: hidden;
+}
+
+/* ---------- barra de progresso e transição ---------- */
+
+.stage__bar {
+  position: absolute;
+  left: var(--gutter);
+  right: var(--gutter);
+  bottom: 1rem;
+  height: 4px;
+  background: var(--line);
+  z-index: 3;
+}
+
+.stage__bar i {
+  position: absolute;
+  inset: 0;
+  background: var(--ink);
+  transform-origin: left;
+  transform: scaleX(0);
+}
+
+.stage__flash {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  background: var(--screen);
+  visibility: hidden;
+}
+
+/* retrato: mesmo critério do 3D (proporção < 1.05) */
+@media (max-aspect-ratio: 21/20) {
+  .hero__title {
+    font-size: clamp(3.6rem, 21vw, 11rem);
+    margin-top: 1.25rem;
+    translate: none;
+  }
+
+  .panel {
+    top: auto;
+    bottom: 2.5rem;
+    translate: none;
+    left: var(--gutter);
+    right: var(--gutter);
+    width: auto;
+  }
+
+  .stage__veil {
+    display: block;
+  }
+
+  .panel__title {
+    font-size: clamp(2rem, 7vw, 3.6rem);
+  }
+}
+
+@media (max-width: 760px) {
+  .hero__meta span:first-child {
+    display: none;
+  }
+
+  .hero__hint {
+    display: none;
+  }
+}

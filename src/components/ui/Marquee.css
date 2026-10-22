@@ -1,0 +1,35 @@
+.marquee {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.marquee__track {
+  display: flex;
+  width: max-content;
+  animation: marquee 32s linear infinite;
+}
+
+.marquee[data-reverse='true'] .marquee__track {
+  animation-direction: reverse;
+}
+
+.marquee__group {
+  display: flex;
+}
+
+.marquee__group span {
+  display: inline-flex;
+  align-items: center;
+}
+
+.marquee__group b {
+  display: inline-block;
+  margin-inline: 0.6em;
+  font-weight: 400;
+}
+
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}

@@ -1,0 +1,77 @@
+.footer {
+  background: var(--ink);
+  color: var(--paper);
+  padding-block: 1.5rem;
+}
+
+.footer__inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem 2rem;
+}
+
+.footer__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 750;
+}
+
+.footer__made {
+  opacity: 0.6;
+  text-transform: none;
+}
+
+.footer__actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.footer__actions button {
+  padding: 0.45rem 0.9rem;
+  border: 1.5px solid currentColor;
+  border-radius: 999px;
+  transition: 0.2s;
+}
+
+.footer__actions button:hover {
+  background: var(--paper);
+  color: var(--ink);
+}
+
+/* ---------- easter egg: tela desligada ---------- */
+
+.power {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: #000;
+  display: grid;
+  place-items: center;
+}
+
+.power__line {
+  position: absolute;
+  inset: 0;
+  background: #f4fff1;
+  box-shadow: 0 0 40px #b8ffad;
+  pointer-events: none;
+}
+
+.power__on {
+  position: relative;
+  color: var(--phosphor);
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  text-shadow: 0 0 10px rgba(141, 255, 122, 0.6);
+  opacity: 0;
+  animation: power-text 0.4s 0.8s forwards;
+  padding: 1rem;
+}
+
+@keyframes power-text {
+  to {
+    opacity: 1;
+  }
+}

@@ -1,0 +1,148 @@
+.stack {
+  background: var(--paper);
+  padding-block: clamp(5rem, 12vw, 9rem);
+  border-top: 2px solid var(--ink);
+}
+
+/* ---------- visor ---------- */
+
+.lcd {
+  margin-top: clamp(2.5rem, 5vw, 4rem);
+  padding: 1rem 1.25rem;
+  min-height: 4.4rem;
+  display: flex;
+  align-items: center;
+  background: var(--screen);
+  color: var(--phosphor);
+  border: 2px solid var(--ink);
+  border-radius: 10px 10px 0 0;
+  border-bottom: 0;
+  text-shadow: 0 0 10px rgba(141, 255, 122, 0.55);
+  max-width: 64rem;
+  margin-inline: auto;
+}
+
+.lcd p {
+  font-size: clamp(1.25rem, 2.4vw, 1.75rem);
+  line-height: 1.1;
+}
+
+.lcd__name {
+  color: var(--amber);
+}
+
+.lcd__idle {
+  opacity: 0.65;
+}
+
+/* ---------- teclado ---------- */
+
+.keyboard {
+  position: relative;
+  max-width: 64rem;
+  margin-inline: auto;
+  display: grid;
+  gap: clamp(0.4rem, 1vw, 0.7rem);
+  padding: clamp(1rem, 3vw, 2rem);
+  padding-top: clamp(1.75rem, 3.5vw, 2.5rem);
+  background: linear-gradient(180deg, #ebe2cc, #d8cdb2);
+  border: 2px solid var(--ink);
+  border-radius: 0 0 22px 22px;
+  box-shadow:
+    inset 0 2px 0 rgba(255, 255, 255, 0.7),
+    0 18px 0 -6px var(--paper-3),
+    0 18px 0 -4px var(--ink);
+}
+
+.keyboard__leds {
+  position: absolute;
+  top: 0.7rem;
+  right: 1.5rem;
+  display: flex;
+  gap: 0.6rem;
+}
+
+.keyboard__leds span {
+  width: 10px;
+  height: 4px;
+  background: #2bd65a;
+  box-shadow: 0 0 6px #2bd65a;
+}
+
+.keyboard__leds span:nth-child(2) {
+  background: var(--paper-3);
+  box-shadow: none;
+}
+
+.keyboard__row {
+  display: flex;
+  gap: clamp(0.4rem, 1vw, 0.7rem);
+}
+
+.key {
+  flex: var(--size) 1 0;
+  min-width: 0;
+  padding: 0 0 7px;
+  background: #b9ad90;
+  border-radius: 9px;
+  border: 1.5px solid var(--ink);
+  transition: padding 0.08s;
+}
+
+.key__cap {
+  display: flex;
+  align-items: flex-start;
+  height: clamp(3rem, 6vw, 4.6rem);
+  padding: 0.55rem 0.65rem;
+  background: linear-gradient(180deg, #faf5e9, #ece3cf);
+  border-radius: 8px 8px 7px 7px;
+  font-family: var(--font-mono);
+  font-size: clamp(0.62rem, 1.15vw, 0.9rem);
+  font-weight: 600;
+  text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  transition:
+    transform 0.08s,
+    background 0.2s;
+}
+
+.key[data-accent='true'] {
+  background: #b33612;
+}
+
+.key[data-accent='true'] .key__cap {
+  background: linear-gradient(180deg, #ff6a3d, var(--accent));
+  color: var(--accent-ink);
+}
+
+.key:hover .key__cap,
+.key:focus-visible .key__cap {
+  background: linear-gradient(180deg, #fff, #f3ecdc);
+}
+
+.key[data-accent='true']:hover .key__cap {
+  background: linear-gradient(180deg, #ff8a63, #ff5a2c);
+}
+
+.key:active,
+.key[data-pressed='true'] {
+  padding-bottom: 2px;
+  margin-top: 5px;
+}
+
+@media (max-width: 640px) {
+  .keyboard__row {
+    flex-wrap: wrap;
+  }
+
+  .key {
+    flex-basis: calc(33.33% - 0.5rem);
+  }
+
+  .key__cap {
+    font-size: 0.75rem;
+    height: 2.8rem;
+  }
+}

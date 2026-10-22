@@ -1,0 +1,170 @@
+.contact {
+  background: var(--accent);
+  color: var(--ink);
+  padding-bottom: clamp(4rem, 10vw, 7rem);
+  overflow: hidden;
+}
+
+.contact__marquee {
+  padding-block: 0.9rem;
+  background: var(--ink);
+  color: var(--accent);
+  font-family: var(--font-pixel);
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  text-transform: uppercase;
+}
+
+.contact__inner {
+  position: relative;
+  padding-top: clamp(4rem, 10vw, 8rem);
+}
+
+.contact__badge {
+  position: absolute;
+  top: clamp(4rem, 10vw, 8rem);
+  right: var(--gutter);
+  width: clamp(8rem, 18vw, 15rem);
+}
+
+.contact__badge circle {
+  fill: var(--ink);
+}
+
+.contact__badge text {
+  fill: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 15.5px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transform-origin: 100px 100px;
+  animation: spin 14s linear infinite;
+}
+
+.contact__badge-icon {
+  fill: var(--paper);
+}
+
+.contact__badge-screen {
+  fill: var(--screen);
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 760px) {
+  .contact__badge {
+    position: static;
+    width: 7rem;
+    margin-bottom: 2rem;
+  }
+}
+
+.contact__eyebrow {
+  margin-bottom: 1.5rem;
+}
+
+.contact__title {
+  font-size: clamp(3.2rem, 11vw, 11rem);
+  line-height: 0.86;
+  letter-spacing: -0.06em;
+  font-stretch: 82%;
+  font-weight: 800;
+  max-width: 12ch;
+}
+
+.contact__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2rem 3rem;
+  margin-top: clamp(2.5rem, 5vw, 4rem);
+}
+
+.contact__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.4rem 2.2rem;
+  font-size: clamp(1.1rem, 2vw, 1.5rem);
+  font-weight: 700;
+  background: var(--ink);
+  color: var(--paper);
+  border-radius: 999px;
+  transition: background 0.25s;
+}
+
+.contact__cta:hover {
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.contact__note {
+  max-width: 32ch;
+  font-size: 1.1rem;
+}
+
+.contact__links {
+  margin-top: clamp(3rem, 7vw, 6rem);
+  border-top: 2px solid var(--ink);
+}
+
+.contact__link {
+  display: grid;
+  grid-template-columns: 1fr auto 3rem;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.25rem 0;
+  border-bottom: 2px solid var(--ink);
+  transition:
+    padding 0.35s var(--ease-out),
+    background 0.25s,
+    color 0.25s;
+}
+
+.contact__label {
+  font-size: clamp(1.8rem, 4.5vw, 3.6rem);
+  font-weight: 750;
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
+.contact__handle {
+  text-transform: none;
+}
+
+.contact__arrow {
+  font-size: 2rem;
+  text-align: right;
+  transition: transform 0.35s var(--ease-out);
+}
+
+.contact__link:hover,
+.contact__link:focus-visible {
+  background: var(--ink);
+  color: var(--accent);
+  padding-inline: 1.25rem;
+}
+
+.contact__link:hover .contact__arrow {
+  transform: rotate(45deg);
+}
+
+@media (max-width: 640px) {
+  .contact__link {
+    grid-template-columns: 1fr auto;
+    gap: 0.25rem 1rem;
+  }
+
+  .contact__handle {
+    grid-row: 2;
+  }
+
+  .contact__arrow {
+    grid-row: 1 / span 2;
+    grid-column: 2;
+  }
+}

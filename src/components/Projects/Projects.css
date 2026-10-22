@@ -1,0 +1,365 @@
+.projects {
+  background: var(--paper);
+  padding-bottom: clamp(5rem, 10vw, 8rem);
+}
+
+.projects__pin {
+  overflow: hidden;
+}
+
+.projects__track {
+  display: flex;
+  align-items: center;
+  gap: clamp(2rem, 4vw, 4rem);
+  height: 100svh;
+  padding: calc(var(--header-h) + 2rem) var(--gutter) 2rem;
+  width: max-content;
+}
+
+.projects__intro {
+  width: min(32rem, 80vw);
+  flex-shrink: 0;
+  display: grid;
+  gap: 2rem;
+}
+
+.projects__hint {
+  color: var(--ink-soft);
+}
+
+/* ---------- janela retrô ---------- */
+
+.win {
+  flex-shrink: 0;
+  width: min(54vw, 52rem);
+  background: var(--paper);
+  border: 2px solid var(--ink);
+  border-radius: 6px;
+  box-shadow: 8px 8px 0 var(--ink);
+  transform-origin: bottom left;
+}
+
+.win:nth-child(odd) {
+  margin-top: 8vh;
+}
+
+.win:nth-child(even) {
+  margin-bottom: 8vh;
+}
+
+.win__bar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2rem;
+  padding-inline: 0.6rem;
+  border-bottom: 2px solid var(--ink);
+  background: repeating-linear-gradient(to bottom, var(--ink) 0 1.5px, transparent 1.5px 4px) center / calc(100% - 1.2rem) 60% no-repeat,
+    var(--paper);
+}
+
+.win__close {
+  position: absolute;
+  left: 0.8rem;
+  width: 14px;
+  height: 14px;
+  border: 1.5px solid var(--ink);
+  background: var(--paper);
+}
+
+button.win__close:hover {
+  background: var(--accent);
+}
+
+.win__title {
+  background: var(--paper);
+  padding-inline: 0.8rem;
+  font-size: 0.7rem;
+  text-transform: none;
+}
+
+.win__view {
+  position: relative;
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  aspect-ratio: 16 / 10;
+  background: var(--paper-2);
+}
+
+.win__view img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  transition:
+    transform 1.2s var(--ease-out),
+    object-position 4s ease;
+}
+
+.win__view:hover img,
+.win__view:focus-visible img {
+  transform: scale(1.04);
+  object-position: bottom;
+}
+
+.win__open {
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+  padding: 0.5rem 0.9rem;
+  background: var(--accent);
+  color: var(--accent-ink);
+  border: 2px solid var(--ink);
+  box-shadow: 3px 3px 0 var(--ink);
+  translate: 0 10px;
+  opacity: 0;
+  transition: 0.35s var(--ease-out);
+}
+
+.win__view:hover .win__open,
+.win__view:focus-visible .win__open {
+  translate: 0 0;
+  opacity: 1;
+}
+
+.win__info {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  padding: 0.9rem 1rem;
+  border-top: 2px solid var(--ink);
+}
+
+.win__info h3 {
+  font-size: clamp(1.2rem, 2vw, 1.6rem);
+  letter-spacing: -0.03em;
+  font-weight: 750;
+}
+
+.win__info p {
+  color: var(--ink-soft);
+  white-space: nowrap;
+}
+
+@media (max-width: 899px) {
+  .projects__pin {
+    overflow: visible;
+  }
+
+  .projects__track {
+    flex-direction: column;
+    align-items: stretch;
+    width: auto;
+    height: auto;
+    padding-top: clamp(5rem, 14vw, 7rem);
+    gap: 2.5rem;
+  }
+
+  .projects__intro {
+    width: auto;
+  }
+
+  .projects__hint {
+    display: none;
+  }
+
+  .win {
+    width: 100%;
+    margin: 0 !important;
+    box-shadow: 5px 5px 0 var(--ink);
+  }
+
+  .win__open {
+    opacity: 1;
+    translate: 0 0;
+  }
+
+  .win__info {
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+}
+
+/* ---------- dialog ---------- */
+
+.project-dialog {
+  margin: auto;
+  width: min(56rem, calc(100vw - 2rem));
+  max-height: calc(100svh - 2rem);
+  border: 0;
+  background: transparent;
+  color: var(--ink);
+  overflow: visible;
+}
+
+.project-dialog::backdrop {
+  background: rgba(23, 21, 18, 0.55);
+  backdrop-filter: blur(4px);
+}
+
+.project-dialog[open] {
+  animation: window-open 0.45s var(--ease-out);
+}
+
+@keyframes window-open {
+  from {
+    opacity: 0;
+    transform: scale(0.92) translateY(20px);
+  }
+}
+
+.project-dialog__window {
+  max-height: calc(100svh - 2rem);
+  overflow: auto;
+  background: var(--paper);
+  border: 2px solid var(--ink);
+  border-radius: 6px;
+  box-shadow: 10px 10px 0 var(--ink);
+}
+
+.project-dialog__window > img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  object-position: top;
+  border-bottom: 2px solid var(--ink);
+}
+
+.project-dialog__body {
+  display: grid;
+  gap: 1rem;
+  padding: clamp(1.25rem, 3vw, 2rem);
+}
+
+.project-dialog__meta {
+  color: var(--accent);
+}
+
+.project-dialog__body h3 {
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+}
+
+.project-dialog__body > p:not(.mono) {
+  max-width: 55ch;
+  color: var(--ink-soft);
+  font-size: 1.1rem;
+}
+
+.project-dialog__stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.project-dialog__stack li {
+  padding: 0.3rem 0.7rem;
+  border: 1.5px solid var(--ink);
+  border-radius: 999px;
+}
+
+/* ---------- lab ---------- */
+
+.lab {
+  margin-top: clamp(4rem, 8vw, 6rem);
+}
+
+.lab__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  flex-wrap: wrap;
+  gap: 1rem 3rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 2px solid var(--ink);
+}
+
+.lab__title {
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
+.lab__title .mono {
+  font-size: 0.5em;
+  color: var(--accent);
+  text-transform: none;
+}
+
+.lab__head p {
+  max-width: 40ch;
+  color: var(--ink-soft);
+}
+
+.lab__row {
+  display: grid;
+  grid-template-columns: 7rem 14rem 1fr auto 2rem;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.1rem 0.75rem;
+  border-bottom: 1px solid var(--line);
+  transition:
+    background 0.2s,
+    color 0.2s,
+    padding 0.3s var(--ease-out);
+}
+
+.lab__row:hover,
+.lab__row:focus-visible {
+  background: var(--ink);
+  color: var(--phosphor);
+  padding-left: 1.5rem;
+}
+
+.lab__perm {
+  color: var(--ink-soft);
+  text-transform: none;
+}
+
+.lab__row:hover .lab__perm {
+  color: var(--phosphor-dim);
+}
+
+.lab__name {
+  font-weight: 700;
+  font-family: var(--font-mono);
+}
+
+.lab__desc {
+  opacity: 0.75;
+}
+
+.lab__stack {
+  opacity: 0.7;
+}
+
+.lab__arrow {
+  font-size: 1.3rem;
+  text-align: right;
+}
+
+@media (max-width: 899px) {
+  .lab__row {
+    grid-template-columns: 1fr auto;
+    gap: 0.25rem 1rem;
+  }
+
+  .lab__perm {
+    display: none;
+  }
+
+  .lab__desc,
+  .lab__stack {
+    grid-column: 1;
+  }
+
+  .lab__arrow {
+    grid-row: 1;
+    grid-column: 2;
+  }
+}

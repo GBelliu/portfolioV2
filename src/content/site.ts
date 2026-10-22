@@ -1,0 +1,32 @@
+export const site = {
+  brand: 'dev do marketing',
+  domain: 'devdomarketing.com.br',
+  url: 'https://devdomarketing.com.br',
+  owner: 'Guilherme Bellissimo Barbosa',
+  firstName: 'Guilherme',
+  since: 2021,
+};
+
+export const yearsCoding = new Date().getFullYear() - site.since;
+
+const whatsappText = encodeURIComponent('Olá, Guilherme! Vim pelo devdomarketing.com.br 👋');
+
+export const whatsapp = {
+  label: '(19) 99990-0511',
+  href: `https://wa.me/5519999900511?text=${whatsappText}`,
+};
+
+export const socials = [
+  { label: 'WhatsApp', handle: whatsapp.label, href: whatsapp.href },
+  { label: 'LinkedIn', handle: 'in/guilhermebellissimobarbosa', href: 'https://www.linkedin.com/in/guilhermebellissimobarbosa/' },
+  { label: 'GitHub', handle: '@GBelliu', href: 'https://github.com/GBelliu' },
+  { label: 'Instagram', handle: '@gui_bellissimo', href: 'https://www.instagram.com/gui_bellissimo/' },
+];
+
+export const nav = [
+  { label: 'Serviços', href: '#servicos' },
+  { label: 'Projetos', href: '#projetos' },
+  { label: 'Processo', href: '#processo' },
+  { label: 'Stack', href: '#stack' },
+  { label: 'Contato', href: '#contato' },
+];

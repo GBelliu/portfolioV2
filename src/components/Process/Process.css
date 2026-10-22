@@ -1,0 +1,186 @@
+.process {
+  background: var(--paper-2);
+  border-top: 2px solid var(--ink);
+}
+
+.process__pin {
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  padding-block: calc(var(--header-h) + 2rem) 2rem;
+}
+
+.process__inner {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: clamp(2rem, 6vw, 6rem);
+  align-items: center;
+}
+
+.process__eyebrow {
+  color: var(--accent);
+  margin-bottom: 1.25rem;
+}
+
+.process__title {
+  font-size: clamp(2.8rem, 7vw, 6.5rem);
+  line-height: 0.9;
+  letter-spacing: -0.05em;
+  font-stretch: 88%;
+  font-weight: 780;
+}
+
+.process__blink {
+  color: var(--accent);
+  animation: blink 1s steps(1) infinite;
+}
+
+.process__intro {
+  margin-top: 1.5rem;
+  max-width: 38ch;
+  color: var(--ink-soft);
+  font-size: clamp(1rem, 1.3vw, 1.2rem);
+}
+
+/* ---------- janela do instalador ---------- */
+
+.install {
+  background: var(--paper);
+  border: 2px solid var(--ink);
+  border-radius: 6px;
+  box-shadow: 10px 10px 0 var(--ink);
+}
+
+.install__body {
+  padding: clamp(1rem, 2.5vw, 1.75rem);
+  display: grid;
+  gap: 1.5rem;
+}
+
+.install__steps {
+  list-style: none;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.install__step {
+  display: grid;
+  grid-template-columns: 1.8rem 1fr;
+  gap: 0.9rem;
+  padding: 0.8rem;
+  border-radius: 4px;
+  transition:
+    background 0.3s,
+    opacity 0.3s;
+}
+
+.install__step[data-state='idle'] {
+  opacity: 0.4;
+}
+
+.install__step[data-state='active'] {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.install__check {
+  width: 1.4rem;
+  height: 1.4rem;
+  border: 2px solid currentColor;
+  display: grid;
+  place-items: center;
+  margin-top: 0.15rem;
+}
+
+.install__step[data-state='done'] .install__check {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.install__step[data-state='done'] .install__check::before {
+  content: '✓';
+  color: var(--accent-ink);
+  font-size: 0.9rem;
+}
+
+.install__step[data-state='active'] .install__check::before {
+  content: '';
+  width: 0.5rem;
+  height: 0.5rem;
+  background: var(--phosphor);
+  animation: blink 0.8s steps(1) infinite;
+}
+
+.install__file {
+  text-transform: none;
+  opacity: 0.6;
+}
+
+.install__step h3 {
+  font-size: 1.3rem;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.install__desc {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition:
+    max-height 0.4s var(--ease-out),
+    opacity 0.4s;
+  font-size: 0.95rem;
+}
+
+.install__step[data-state='active'] .install__desc {
+  max-height: 6rem;
+  opacity: 0.8;
+  margin-top: 0.3rem;
+}
+
+.install__bar {
+  display: grid;
+  grid-template-columns: repeat(24, 1fr);
+  gap: 3px;
+  height: 1.6rem;
+  padding: 3px;
+  border: 2px solid var(--ink);
+}
+
+.install__seg {
+  background: var(--accent);
+  visibility: hidden;
+}
+
+.install__status {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.6rem;
+  font-size: 1.5rem;
+  white-space: pre;
+}
+
+.install__done-text,
+.process[data-complete] .install__status-text {
+  display: none;
+}
+
+.process[data-complete] .install__done-text {
+  display: inline;
+  color: var(--accent);
+}
+
+@media (max-width: 900px) {
+  .process__inner {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+
+  .process__intro {
+    display: none;
+  }
+
+  .install__step {
+    padding: 0.55rem;
+  }
+}

@@ -1,0 +1,49 @@
+.loader {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: #050705;
+}
+
+.loader__screen {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-content: center;
+  gap: 1.25rem;
+  text-align: center;
+  background: var(--screen);
+  color: var(--phosphor);
+  text-shadow: 0 0 12px rgba(141, 255, 122, 0.6);
+  animation: flicker 0.12s steps(2) infinite;
+}
+
+.loader__brand {
+  font-size: clamp(3rem, 10vw, 7rem);
+  line-height: 0.9;
+}
+
+.loader__brand span {
+  color: var(--amber);
+  text-shadow: 0 0 14px rgba(255, 181, 71, 0.6);
+}
+
+.loader__msg {
+  font-size: 1.6rem;
+  opacity: 0.8;
+}
+
+.loader__bar {
+  font-size: clamp(1.3rem, 4vw, 2rem);
+  white-space: pre;
+}
+
+.loader__bar span {
+  opacity: 0.35;
+}
+
+@keyframes flicker {
+  50% {
+    opacity: 0.97;
+  }
+}

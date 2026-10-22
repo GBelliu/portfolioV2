@@ -1,0 +1,38 @@
+.heading {
+  display: grid;
+  gap: 1.25rem;
+  max-width: 60rem;
+}
+
+.heading__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--accent);
+}
+
+.heading__eyebrow::before {
+  content: '';
+  width: 2rem;
+  height: 1.5px;
+  background: currentColor;
+}
+
+.heading__title {
+  font-size: clamp(2.6rem, 7vw, 6.5rem);
+  font-weight: 780;
+  line-height: 0.92;
+  letter-spacing: -0.045em;
+  font-stretch: 88%;
+}
+
+.heading__title em {
+  font-style: normal;
+  color: var(--accent);
+}
+
+.heading__intro {
+  max-width: 46ch;
+  font-size: clamp(1rem, 1.3vw, 1.2rem);
+  opacity: 0.75;
+}
