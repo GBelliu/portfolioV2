@@ -38,13 +38,13 @@ function Rig({ children }: { children: ReactNode }) {
     const visibleW = VISIBLE_H * aspect;
     const t = state.clock.elapsedTime;
 
-    const baseScale = wide ? Math.min(1, VISIBLE_H / 4.6) : Math.min(visibleW / 3.5, VISIBLE_H / 6.4);
+    const baseScale = wide ? Math.min(1, VISIBLE_H / 4.6) : Math.min(visibleW / 3.7, VISIBLE_H / 6.8);
     const about = smoothstep(s.p, 0.06, 0.2);
     const zoom = easeInOut(smoothstep(s.p, 0.8, 0.99));
     const intro = stage.intro;
 
     const scale = lerp(wide ? baseScale * 0.9 : baseScale, wide ? baseScale * 0.95 : baseScale * 0.72, about);
-    const heroY = wide ? -0.45 : -VISIBLE_H * 0.17;
+    const heroY = wide ? -0.45 : -VISIBLE_H * 0.08;
     const aboutX = wide ? visibleW * 0.22 : 0;
     const aboutY = wide ? -0.3 : VISIBLE_H * 0.2;
 
