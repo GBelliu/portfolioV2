@@ -42,7 +42,7 @@ const dev = {
   nome: "${site.firstName}",
   apelido: "${site.brand}",
   codando_desde: ${site.since},
-  stack: ["React", "Next", "Vue", "Laravel"],
+  stack: ["Vue", "React", "Next", "TS"],
   foco: ["conversao", "SEO", "dados"],
 };
 

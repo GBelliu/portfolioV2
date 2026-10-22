@@ -5,6 +5,7 @@ import { Header } from './components/Header/Header';
 import { Stage } from './components/Stage/Stage';
 import { Services } from './components/Services/Services';
 import { Projects } from './components/Projects/Projects';
+import { Career } from './components/Career/Career';
 import { Process } from './components/Process/Process';
 import { Stack } from './components/Stack/Stack';
 import { Terminal } from './components/Terminal/Terminal';
@@ -31,6 +32,7 @@ export function App() {
         <Services />
         <Marquee className="strip" items={strip} separator="✦" />
         <Projects />
+        <Career />
         <Process />
         <Stack />
         <Terminal />

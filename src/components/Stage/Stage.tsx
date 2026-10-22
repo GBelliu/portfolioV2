@@ -1,7 +1,7 @@
 import { Suspense, lazy, useEffect, useRef, useState } from 'react';
 import { gsap, SplitText, useGSAP, prefersReducedMotion } from '../../lib/gsap';
 import { stage } from '../../lib/stage';
-import { yearsCoding } from '../../content/site';
+import { site, yearsCoding } from '../../content/site';
 import './Stage.css';
 
 const Scene = lazy(() => import('../Computer/Scene'));
@@ -11,7 +11,7 @@ const panels = [
     eyebrow: '01 / quem tá digitando',
     title: 'Oi, eu sou o Guilherme.',
     text: [
-      `Desenvolvedor web há ${yearsCoding}+ anos, quase sempre do lado do marketing: agências, lançamentos, landing pages e e-commerce.`,
+      `Comecei em ${site.since} como dev e assistente de marketing ao mesmo tempo: landing pages de um lado, Google Ads e Analytics do outro. Daí o apelido. São ${yearsCoding}+ anos entre agência, sites e produto.`,
       'Eu traduzo briefing em código. E código em resultado.',
     ],
   },
@@ -71,7 +71,8 @@ export function Stage({ ready }: { ready: boolean }) {
 
       tl.to('.hero__line--a', { xPercent: -18, yPercent: -60, autoAlpha: 0, duration: 0.12 }, 0.03)
         .to('.hero__line--b', { xPercent: 18, yPercent: -60, autoAlpha: 0, duration: 0.12 }, 0.03)
-        .to('.hero__fade', { autoAlpha: 0, y: -20, duration: 0.05 }, 0.01);
+        // o scroll anima os contêineres; a entrada anima os filhos, para não disputarem os mesmos valores
+        .to(['.hero__meta', '.hero__bottom'], { autoAlpha: 0, y: -20, duration: 0.05 }, 0.01);
 
       const windows: [number, number][] = [
         [0.15, 0.37],
@@ -114,7 +115,7 @@ export function Stage({ ready }: { ready: boolean }) {
         .call(() => {
           stage.bootAt = performance.now();
         }, [], 0.9)
-        .from('.hero__fade', { autoAlpha: 0, y: 24, stagger: 0.1, duration: 0.8, ease: 'power3.out' }, 0.5);
+        .from(['.hero__meta > span', '.hero__lead', '.hero__hint'], { autoAlpha: 0, y: 24, stagger: 0.1, duration: 0.8, ease: 'power3.out' }, 0.5);
 
       return () => split.revert();
     },
@@ -125,7 +126,7 @@ export function Stage({ ready }: { ready: boolean }) {
     <section className="stage" ref={root} id="inicio" aria-label="Apresentação">
       <div className="stage__pin">
         <div className="hero">
-          <div className="hero__meta hero__fade mono">
+          <div className="hero__meta mono">
             <span>Portfólio © {new Date().getFullYear()}</span>
             <span>
               <i className="dot" aria-hidden="true" /> Aceitando novos projetos
@@ -138,10 +139,10 @@ export function Stage({ ready }: { ready: boolean }) {
           </h1>
 
           <div className="hero__bottom">
-            <p className="hero__lead hero__fade">
+            <p className="hero__lead">
               Sites, landing pages e e-commerces feitos por quem fala a língua do briefing <em>e</em> a do código.
             </p>
-            <p className="hero__hint hero__fade mono" aria-hidden="true">
+            <p className="hero__hint mono" aria-hidden="true">
               role para ligar <span>↓</span>
             </p>
           </div>

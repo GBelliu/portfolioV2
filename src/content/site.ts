@@ -27,6 +27,7 @@ export const socials = [
 export const nav = [
   { label: 'Serviços', href: '#servicos' },
   { label: 'Projetos', href: '#projetos' },
+  { label: 'Trajetória', href: '#trajetoria' },
   { label: 'Processo', href: '#processo' },
   { label: 'Stack', href: '#stack' },
   { label: 'Contato', href: '#contato' },

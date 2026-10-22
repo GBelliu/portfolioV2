@@ -10,8 +10,8 @@ export const services: Service[] = [
   {
     title: 'Landing pages',
     label: 'LP_QUE_CONVERTE.EXE',
-    description: 'Páginas pensadas pra campanha: rápidas, fiéis ao layout e prontas pra teste A/B.',
-    tags: ['Copy-first', 'A/B test', 'Core Web Vitals'],
+    description: 'Páginas pensadas pra campanha: rápidas, fiéis ao layout e feitas por quem já rodou o anúncio.',
+    tags: ['React', 'Next.js', 'Core Web Vitals'],
     color: 'var(--accent)',
   },
   {
@@ -24,15 +24,15 @@ export const services: Service[] = [
   {
     title: 'E-commerce',
     label: 'LOJA_ONLINE.DAT',
-    description: 'Lojas, apps e integrações para e-commerce, do catálogo ao checkout.',
-    tags: ['Integrações', 'Apps', 'Checkout'],
+    description: 'Hoje construo apps SaaS de otimização para e-commerce. Sei o que faz uma loja vender mais.',
+    tags: ['SaaS', 'Vue', 'Integrações'],
     color: 'var(--yellow)',
   },
   {
     title: 'Tracking & dados',
     label: 'PIXEL_TRACKER.LOG',
-    description: 'Eventos de conversão bem configurados pra campanha otimizar com dado de verdade.',
-    tags: ['GA4', 'GTM', 'Meta Pixel'],
+    description: 'Já estive do lado de quem roda a campanha. O site nasce pronto pra medir e otimizar.',
+    tags: ['Google Analytics', 'Google Ads', 'Relatórios'],
     color: 'var(--phosphor)',
   },
   {
@@ -43,10 +43,10 @@ export const services: Service[] = [
     color: 'var(--pink)',
   },
   {
-    title: 'Interfaces animadas',
-    label: 'UAU_EFFECT.FX',
-    description: 'Interações e animações que prendem atenção, tipo esse computador aí em cima.',
-    tags: ['GSAP', 'Three.js', 'Motion'],
+    title: 'Plataformas & produto',
+    label: 'PRODUTO_SAAS.APP',
+    description: 'Front-end de produto com componentes reutilizáveis, testes e documentação, do jeito que escala.',
+    tags: ['Design system', 'Storybook', 'Cypress'],
     color: 'var(--paper)',
   },
 ];

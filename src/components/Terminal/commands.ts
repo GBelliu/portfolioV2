@@ -1,3 +1,4 @@
+import { releases } from '../../content/career';
 import { projects } from '../../content/projects';
 import { services } from '../../content/services';
 import { stackRows } from '../../content/stack';
@@ -17,6 +18,7 @@ const HELP = [
   '  sobre       quem é o dev do marketing',
   '  servicos    o que eu faço',
   '  projetos    trabalhos recentes',
+  '  trajetoria  changelog da carreira',
   '  abrir <n>   abre o projeto n numa nova aba',
   '  stack       ferramentas',
   '  contato     onde me encontrar',
@@ -40,8 +42,9 @@ export function runCommand(raw: string): CommandResult {
       return {
         output: [
           `${site.owner}, a.k.a. "${site.brand}".`,
-          `${yearsCoding}+ anos construindo sites, landing pages e e-commerce`,
-          'com um pé no código e outro no marketing.',
+          `${yearsCoding}+ anos de código: marketing, agência e hoje produto.`,
+          `atualmente: ${releases[0].role} @ ${releases[0].company}.`,
+          "digite 'trajetoria' pra ver o changelog completo.",
         ],
       };
     case 'servicos':
@@ -54,6 +57,12 @@ export function runCommand(raw: string): CommandResult {
           '',
           "digite 'abrir 1' pra visitar o primeiro.",
         ],
+      };
+    case 'trajetoria':
+    case 'trajetória':
+    case 'changelog':
+      return {
+        output: releases.map((r) => `  ${r.version.padEnd(10, ' ')} ${r.period.padEnd(20, ' ')} ${r.role} @ ${r.company}`),
       };
     case 'abrir':
     case 'open': {
